@@ -7,9 +7,9 @@
 
 Afficher toutes les informations nécessaires.
 */
-require_once 'products.php';
+$products = require_once 'products.php';
 
-require_once 'users.php';
+$customers = require_once 'users.php';
 
 $client1->SetCart([]);
 $client2->SetCart([]);

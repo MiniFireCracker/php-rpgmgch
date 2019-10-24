@@ -3,8 +3,6 @@
 require_once'User.php';
 
 	class Client extends User {
-
-		public $arrOfProducts = [];
 	
 		public function buy($Item){	
 
@@ -15,22 +13,23 @@ require_once'User.php';
 
 		private $_billAmount;
 
-		private $_cart;
+		private $_cart = [];
 
-		public function GetCart(){
+		public function getCart(){
 			return $this->_cart;
 		}
+
+		public function setCart($c){
+			$this->_cart = $c;
+		}
+
 
 		public function GetBillAmount(){
 			return $this->_billAmount;
 		}
 
-		public function SetCart($arrOfProducts){
-
-			if (is_array( $arrOfProducts)){
-				 return $this->_cart = $arrOfProducts;
-			}
-
+		public function SetCart($oneProduct){
+			$this->arrOfProducts = $oneProduct;
 		}
 
 		public function SetBillAmount(){
@@ -46,14 +45,17 @@ require_once'User.php';
 					$productPrice= $product->getPrice;
 						$CartValue += $productPrice;
 					}
-			    }
+			    
 			return $CartValue;
 
 		}
 
-		public function addProductToCart($Item){
+		public function addProductToCart($product, $quantity){
 
-			array_push($this->SetCart($arrOfProducts),$product);	
+			$this->arrOfProducts[] = [
+				"product" => $product,
+				"quantity" => $quantity
+			];
 
 		}
 
