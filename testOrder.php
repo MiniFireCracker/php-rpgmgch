@@ -9,14 +9,13 @@ Afficher toutes les informations nécessaires.
 */
 $products = require_once 'products.php';
 
-$customers = require_once 'users.php';
+$clients = require_once 'users.php';
 
-$client1->SetCart([]);
-$client2->SetCart([]);
 
-$client1->buy($product1) ;
-$client2->buy($product2);
-$client2->buy($product5);
+$clients[0]->buy($products[0]);
+
+$clients[1]->buy($products[1]);
+$clients[1]->buy($products[4]);
 
 
 ?>
@@ -30,13 +29,23 @@ $client2->buy($product5);
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<?= $client1->GetCart() . '<br>'  ?>
-	<?= $client2->GetCart() . '<br>'  ?>
-	
-	<?= $client1->GetBillAmount() . '<br>'  ?>
-	<?= $client2->GetBillAmount() . '<br>'  ?>
+<?php
+	echo "Client1's cart contains the following items: ";
 
+foreach($client1->getCart() as $item) {   
+        echo  $item  ;
+} 
 
+echo "// This purchase will amount to : " . $client1->getBillAmount() . "<br>";
+
+echo "Client2's cart holds the following items: ";
+
+foreach($client2->getCart() as $item) {
+        echo  $item . ", " ;
+} 
+
+echo "// This purchase will amount to :" . $client2->getBillAmount() . "";
+?>
 
 </body>
 </html>
