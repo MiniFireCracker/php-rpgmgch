@@ -30,6 +30,9 @@
 		<?php endforeach; ?>
 		
 	</ul>
+
+	<p>The price of your cart amounts to: 
+		<?php $clients[($_POST['client'])-1]->buy($_POST['product1'])->buy($_POST['product2'])->buy($_POST['product3']) ?> Eur.</p>
 <?php
 	
 ?>
