@@ -1,6 +1,6 @@
 <?php
 
-require_once 'classes/Client.php';
+require_once 'models/Client.php';
 
 $client1 = new Client( 1, 'martineau@lepoivrot.fr' );
 $client2 = new Client ( 2, 'Estupido@elhombre.es');

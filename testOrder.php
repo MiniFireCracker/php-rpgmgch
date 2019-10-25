@@ -7,9 +7,9 @@
 
 Afficher toutes les informations nécessaires.
 */
-$products = require_once 'products.php';
+$products = require_once 'data/products.php';
 
-$clients = require_once 'users.php';
+$clients = require_once 'data/users.php';
 
 
 $clients[0]->buy($products[0]);

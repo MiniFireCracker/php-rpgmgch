@@ -1,6 +1,6 @@
 <?php
 
- $users = require_once ('users.php');
+ $users = require_once ('../data/users.php');
 
 ?>
 

@@ -1,6 +1,6 @@
 <?php
 
- $products_file = require_once'products.php';
+ $products_file = require_once'../data/products.php';
 
 ?>
 

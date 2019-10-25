@@ -2,8 +2,8 @@
 
 //Créer un fichier products.php qui retourne un tableau contenant deux légumes et trois vêtements.
 
-require_once'classes/Vegetable.php';
-require_once'classes/Cloth.php';
+require_once'models/Vegetable.php';
+require_once'models/Cloth.php';
 
 return [
 	new Vegetable( 1, "eggplant", 3, "Antonio", "2/10/2012" ),
