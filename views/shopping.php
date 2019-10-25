@@ -1,10 +1,3 @@
-	<?php
-	 	$clients = require_once(__DIR__."/../data/users.php");
-        $products = require_once(__DIR__."/../data/products.php");
-       //var_dump($clients);
-	?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,33 +7,39 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-         
-	<form>
+        
+	<?php
+	 	$clients = require_once(__DIR__."/../data/users.php");
+        $products = require_once(__DIR__."/../data/products.php");
+       //var_dump($clients);
+	?>
+
+
+	<form action="/validateOrder.php" method="POST">
 		<label> Identify yourself as : </label>
-		<select>
+		<select id="client" name="client" >
 			<?php for($i=0; $i<count($clients); ++$i){ ?>
-			<option value= <?php $clients[$i]->getId() ?> ><?= $clients[$i]->getId() ?></option>
+			<option><?= $clients[$i]->getId() ?></option>
 			<?php }; ?>
 		</select>
 		<label> Fill your cart with: </label>
-			<select>
+			<select id="purchase1" name="purchase1">
 			<?php for($i=0; $i<count($products); ++$i){ ?>
-			<option value= <?php $products[$i]->getName() ?>><?= $products[$i]->getName() ?></option>
+			<option><?= $products[$i]->getName() ?></option>
 			<?php }; ?>
 			</select>
-			<select>
+			<select id="purchase2" name="purchase2">
 			<?php for($i=0; $i<count($products); ++$i){ ?>
-			<option value= <?php $products[$i]->getName() ?>><?= $products[$i]->getName() ?></option>
+			<option><?= $products[$i]->getName() ?></option>
 			<?php }; ?>
 			</select>
-		<select>
+			<select id="purchase3" name="purchase3">
 			<?php for($i=0; $i<count($products); ++$i){ ?>
-			<option value= <?php $products[$i]->getName() ?>><?= $products[$i]->getName() ?></option>
+			<option><?= $products[$i]->getName() ?></option>
 			<?php }; ?>
 			</select>
-		
-
-		<button type=submit> Order </button>
+	
+		<button type=submit> Add to cart</button>
 	</form>
 <?php
 	
